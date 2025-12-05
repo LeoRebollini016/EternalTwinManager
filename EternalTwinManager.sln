@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36717.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EternalTwinManager.WinForms", "EternalTwinManager\EternalTwinManager.WinForms.csproj", "{9C163C81-13AF-466F-80EC-12D79CA5C7B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3BB547FB-0914-447F-ADD2-47C4C48907F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EternalTwinManager.Core", "EternalTwinManager.Core\EternalTwinManager.Core.csproj", "{D63B32C5-7B7C-49C2-B502-A0F2E745508C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EternalTwinManager.Application", "EternalTwinManager.Application\EternalTwinManager.Application.csproj", "{7F9C86AD-7F7C-4D37-932D-58A7089980C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EternalTwinManager.Infrastructure", "EternalTwinManager.Infraestructure\EternalTwinManager.Infrastructure.csproj", "{85376BA1-9287-463D-8F8D-2053D1986AB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EternalTwinManager.Bootstrap", "EternalTwinManager.Bootstrap\EternalTwinManager.Bootstrap.csproj", "{7FFA8231-A4EF-45B6-B02C-6E4898682328}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C163C81-13AF-466F-80EC-12D79CA5C7B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C163C81-13AF-466F-80EC-12D79CA5C7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C163C81-13AF-466F-80EC-12D79CA5C7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C163C81-13AF-466F-80EC-12D79CA5C7B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D63B32C5-7B7C-49C2-B502-A0F2E745508C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D63B32C5-7B7C-49C2-B502-A0F2E745508C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D63B32C5-7B7C-49C2-B502-A0F2E745508C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D63B32C5-7B7C-49C2-B502-A0F2E745508C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F9C86AD-7F7C-4D37-932D-58A7089980C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F9C86AD-7F7C-4D37-932D-58A7089980C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F9C86AD-7F7C-4D37-932D-58A7089980C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F9C86AD-7F7C-4D37-932D-58A7089980C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85376BA1-9287-463D-8F8D-2053D1986AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85376BA1-9287-463D-8F8D-2053D1986AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85376BA1-9287-463D-8F8D-2053D1986AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85376BA1-9287-463D-8F8D-2053D1986AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FFA8231-A4EF-45B6-B02C-6E4898682328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FFA8231-A4EF-45B6-B02C-6E4898682328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FFA8231-A4EF-45B6-B02C-6E4898682328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FFA8231-A4EF-45B6-B02C-6E4898682328}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9C163C81-13AF-466F-80EC-12D79CA5C7B1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{D63B32C5-7B7C-49C2-B502-A0F2E745508C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7F9C86AD-7F7C-4D37-932D-58A7089980C2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{85376BA1-9287-463D-8F8D-2053D1986AB7} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7FFA8231-A4EF-45B6-B02C-6E4898682328} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8BFD3816-E171-4DD6-BC75-6962DED89856}
+	EndGlobalSection
+EndGlobal

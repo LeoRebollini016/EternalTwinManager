@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Brutes\Enums\" />
+    <Folder Include="Brutes\Events\" />
+    <Folder Include="Brutes\ValueObjects\" />
+    <Folder Include="Dino\Enums\" />
+    <Folder Include="Dino\Events\" />
+    <Folder Include="Dino\ValueObjects\" />
+    <Folder Include="Shared\Events\" />
+    <Folder Include="Shared\ValueObjects\" />
+  </ItemGroup>
+
+</Project>
