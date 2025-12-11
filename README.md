@@ -65,11 +65,11 @@ Advertencia: No aumentar variables sin considerar límites de la API.
 ```json
 [
   {
-    "username": "user1",
+    "user": "user1",
     "password": "pass1"
   },
   {
-    "username": "user2",
+    "user": "user2",
     "password": "pass2"
   }
 ]
