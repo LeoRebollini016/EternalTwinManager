@@ -1,4 +1,4 @@
-﻿using EternalTwinManager.Core.Shared.Interfaces.Services;
+﻿using EternalTwinManager.Core.Interfaces.Shared.Ports;
 using System.Text;
 
 namespace EternalTwinManager.Infraestructure.Authentication.Shared;

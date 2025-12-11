@@ -1,9 +1,8 @@
 ﻿using EternalTwinManager.Application.Interfaces.Services;
-using EternalTwinManager.Core.Brute.Dtos;
-using EternalTwinManager.Core.Brute.Dtos.Auth;
-using EternalTwinManager.Core.Brute.Interfaces.Apis;
-using EternalTwinManager.Core.Brutes.Dtos;
-using EternalTwinManager.Core.Shared.Models;
+using EternalTwinManager.Core.Dtos.Brutes.Auth;
+using EternalTwinManager.Core.Dtos.Brutes.Battles;
+using EternalTwinManager.Core.Interfaces.Brutes.Apis;
+using EternalTwinManager.Core.Models;
 
 namespace EternalTwinManager.Application.Services;
 

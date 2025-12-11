@@ -1,17 +1,16 @@
 ﻿using EternalTwinManager.Infrastructure.External.Brute.Response;
-using EternalTwinManager.Core.Brute.Entities;
 
 namespace EternalTwinManager.Infrastructure.External.Brute.Mappers;
 
 public static class BruteMapperExtension
 {
-    public static Core.Brute.Entities.Brute ForHookToBrute(this BruteForHookResponse src)
+    public static Core.Entities.Brutes.Brute ForHookToBrute(this BruteForHookResponse src)
     {
 
         IReadOnlyList<string> Safe(IReadOnlyList<string>? l)
             => l ?? Array.Empty<string>();
 
-        return new Core.Brute.Entities.Brute
+        return new Core.Entities.Brutes.Brute
         {
             Name = src.Name ?? string.Empty,
             Gender = src.Gender ?? string.Empty,

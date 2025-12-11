@@ -1,4 +1,4 @@
-﻿using EternalTwinManager.Core.Brute.Dtos.Auth;
+﻿using EternalTwinManager.Core.Dtos.Brutes.Auth;
 using EternalTwinManager.Infrastructure.External.Brute.Response;
 
 namespace EternalTwinManager.Infrastructure.External.Brute.Mappers;
@@ -7,7 +7,8 @@ public static class AuthenticateMapperExtension
 {
     public static AuthUserDto ToDto(this AuthenticateResponse response)
     {
-        var u = response.User;
+        var u = response.User
+            ?? throw new InvalidOperationException("User not found");
 
         return new AuthUserDto(
             UserId: u.Id,
@@ -16,19 +17,19 @@ public static class AuthenticateMapperExtension
             Gold: u.Gold,
             BruteLimit: u.BruteLimit,
             LastSeen: u.LastSeen,
-            Brutes: u.Brutes!.Select(b => new AuthBruteDto(
-                Id: b.Id,
-                Name: b.Name,
-                Level: b.Level,
-                Ranking: b.Ranking,
-                FightsLeft: b.FightsLeft,
-                Victories: b.Victories,
-                Losses: b.Losses,
-                Favorite: b.Favorite,
-                Gender: b.Gender,
-                Body: b.Body,
-                Colors: b.Colors
-            )).ToList()
+            Brutes: u.Brutes?.Select(b => new AuthBruteDto(
+                    Id: b.Id,
+                    Name: b.Name,
+                    Level: b.Level,
+                    Ranking: b.Ranking,
+                    FightsLeft: b.FightsLeft,
+                    Victories: b.Victories,
+                    Losses: b.Losses,
+                    Favorite: b.Favorite,
+                    Gender: b.Gender,
+                    Body: b.Body,
+                    Colors: b.Colors
+                )).ToList() ?? new List<AuthBruteDto>()
         );
     }
 }

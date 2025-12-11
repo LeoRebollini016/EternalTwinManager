@@ -1,7 +1,6 @@
-﻿using EternalTwinManager.Core.Brute.Dtos;
-using EternalTwinManager.Core.Brute.Dtos.Auth;
-using EternalTwinManager.Core.Brutes.Dtos;
-using EternalTwinManager.Core.Shared.Models;
+﻿using EternalTwinManager.Core.Dtos.Brutes.Auth;
+using EternalTwinManager.Core.Dtos.Brutes.Battles;
+using EternalTwinManager.Core.Models;
 
 namespace EternalTwinManager.Application.Interfaces.Services;
 

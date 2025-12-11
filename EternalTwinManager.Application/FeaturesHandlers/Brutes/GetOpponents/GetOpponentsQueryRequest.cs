@@ -1,5 +1,5 @@
-﻿using EternalTwinManager.Core.Brute.Dtos;
-using EternalTwinManager.Core.Shared.Models;
+﻿using EternalTwinManager.Core.Dtos.Brutes.Battles;
+using EternalTwinManager.Core.Models;
 using MediatR;
 
 namespace EternalTwinManager.Application.FeaturesHandlers.Brutes.GetOpponents;

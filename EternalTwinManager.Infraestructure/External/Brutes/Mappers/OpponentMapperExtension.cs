@@ -1,4 +1,4 @@
-﻿using EternalTwinManager.Core.Brute.Dtos;
+﻿using EternalTwinManager.Core.Dtos.Brutes.Battles;
 using EternalTwinManager.Infrastructure.External.Brute.Response;
 
 namespace EternalTwinManager.Infrastructure.External.Brute.Mappers;

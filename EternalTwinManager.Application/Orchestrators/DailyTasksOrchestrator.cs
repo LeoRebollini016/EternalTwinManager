@@ -1,5 +1,7 @@
 ﻿using EternalTwinManager.Application.FeaturesHandlers.Brutes.Login;
 using EternalTwinManager.Application.Orchestrators.Pipelines;
+using EternalTwinManager.Core.Enums;
+using EternalTwinManager.Core.Events;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -11,23 +13,29 @@ public class DailyTasksOrchestrator(IMediator mediator, AutoFightPipeline autoFi
     private readonly AutoFightPipeline _autoFightPipeline = autoFightPipeline;
     private readonly ILogger<DailyTasksOrchestrator> _logger = logger;
 
-    public async Task RunFourAccountAsync(string username, string password, CancellationToken ct)
+    public async Task RunForAccountAsync(string username, string password, IProgress<AccountProgressUpdate> progress, CancellationToken ct)
     {
+        progress.Report(new(username, AccountProcessStateEnum.Starting, null, "Iniciando tareas"));
         _logger.LogInformation("DAILY TASKS PARA {user} ", username);
 
         var authRequest = new LoginCommandRequest(username, password);
         var auth = await _mediator.Send(authRequest, ct);
 
         if (auth is null) {
+            progress.Report(new(username, AccountProcessStateEnum.LoginFailed, null, "Login falló"));
             _logger.LogWarning("Login falló para {user}, se detienen tareas diarias", username);
             return;
         }
-        var user = auth.AuthUser;
+        var user = auth.Account;
         var session = auth.Session;
+        progress.Report(new(username, AccountProcessStateEnum.LoginSuccess, null, "Login exitoso"));
+
+        _logger.LogWarning("Brutes instancia hash: {b}", username);
 
         foreach (var brute in user!.Brutes)
         {
             var bruteName = brute.Name;
+            progress.Report(new(username, AccountProcessStateEnum.ProcessingBrute, $"{bruteName}", "Inicio de tareas"));
             _logger.LogInformation("Ejecutando tareas para brute {b}", bruteName);
 
             int? remaining = null;
@@ -48,10 +56,11 @@ public class DailyTasksOrchestrator(IMediator mediator, AutoFightPipeline autoFi
                     {
                         _logger.LogInformation("Brute {b} → Ejecutando pelea (intento {a}/{m})", bruteName, attempt, maxRetriesPerFight);
 
-                        var result = await _autoFightPipeline.ExecuteAsync(session, bruteName, brute.Level, ct);
+                        var result = await _autoFightPipeline.ExecuteAsync(session, username, bruteName, brute.Level, progress, ct);
 
                         if (result.Executed)
                         {
+                            progress.Report(new(username, AccountProcessStateEnum.FightFinished, bruteName,$"Quedan {result.RemainingFights} combates."));
                             fightExecuted = true;
                             newRemaining = result.RemainingFights;
                             break;
@@ -68,6 +77,7 @@ public class DailyTasksOrchestrator(IMediator mediator, AutoFightPipeline autoFi
                 }
                 if(!fightExecuted && loginFightsLeft == 0)
                 {
+                    progress.Report(new(username, AccountProcessStateEnum.FightFinished, bruteName, "Finalizó sus combates."));
                     _logger.LogInformation("Brute {b} → Sin peleas restantes. Finalizando.", bruteName);
                     break;
                 }
@@ -99,7 +109,7 @@ public class DailyTasksOrchestrator(IMediator mediator, AutoFightPipeline autoFi
                 }
             }
         }
-
+        progress.Report(new(username, AccountProcessStateEnum.Completed, null, "Finalizó las tareas."));
         _logger.LogInformation("Finalizado daily Tasks para {user}", username);
     }
 }

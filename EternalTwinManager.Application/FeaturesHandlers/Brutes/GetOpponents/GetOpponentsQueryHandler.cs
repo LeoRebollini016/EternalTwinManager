@@ -1,5 +1,5 @@
 ﻿using EternalTwinManager.Application.Interfaces.Services;
-using EternalTwinManager.Core.Brute.Dtos;
+using EternalTwinManager.Core.Dtos.Brutes.Battles;
 using MediatR;
 
 namespace EternalTwinManager.Application.FeaturesHandlers.Brutes.GetOpponents;

@@ -1,5 +1,4 @@
-﻿using EternalTwinManager.Core.Brute.Dtos.Auth;
-using EternalTwinManager.Core.Shared.Models;
+﻿using EternalTwinManager.Core.Dtos.Brutes.Auth;
 using MediatR;
 
 namespace EternalTwinManager.Application.FeaturesHandlers.Brutes.AuthenticateUser;

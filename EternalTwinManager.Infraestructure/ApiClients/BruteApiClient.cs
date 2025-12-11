@@ -1,8 +1,7 @@
-﻿using EternalTwinManager.Core.Brute.Dtos;
-using EternalTwinManager.Core.Brute.Dtos.Auth;
-using EternalTwinManager.Core.Brute.Interfaces.Apis;
-using EternalTwinManager.Core.Brutes.Dtos;
-using EternalTwinManager.Core.Shared.Models;
+﻿using EternalTwinManager.Core.Dtos.Brutes.Auth;
+using EternalTwinManager.Core.Dtos.Brutes.Battles;
+using EternalTwinManager.Core.Interfaces.Brutes.Apis;
+using EternalTwinManager.Core.Models;
 using EternalTwinManager.Infrastructure.External.Brute.Mappers;
 using EternalTwinManager.Infrastructure.External.Brute.Request;
 using EternalTwinManager.Infrastructure.External.Brute.Response;
@@ -19,14 +18,13 @@ public class BruteApiClient(ILogger<BruteApiClient> logger) : IBruteApiClient
     private readonly ILogger<BruteApiClient> _logger = logger;
     public async Task<AuthUserDto?> AuthenticateUserAsync(HttpClient httpClient, string accountId, string accessToken, CancellationToken ct)
     {
-        var _httpClient = httpClient;
         var authenticateRequest = new AuthenticateRequest(accountId, accessToken);
 
         _logger.LogInformation("Authenticating user with: {AccountId}", accountId);
 
-        var response = await _httpClient.PostAsJsonAsync("user/authenticate?", authenticateRequest, ct);
+        var response = await httpClient.PostAsJsonAsync("user/authenticate?", authenticateRequest, ct);
 
-        if(!response.IsSuccessStatusCode)
+        if (!response.IsSuccessStatusCode)
         {
             _logger.LogWarning("Failed to authenticate user with accountId: {AccountId}. Status Code: {StatusCode}", accountId, response.StatusCode);
             return null;
@@ -111,7 +109,6 @@ public class BruteApiClient(ILogger<BruteApiClient> logger) : IBruteApiClient
 
         return response.IsSuccessStatusCode;
     }
-    
     public async Task<FightDto> StartFightAsync(UserSession session, string bruteName, string opponentName, CancellationToken ct)
     {
         var httpClient = session.HttpClient;

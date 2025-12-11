@@ -1,4 +1,4 @@
-﻿using EternalTwinManager.Core.Brutes.Dtos;
+﻿using EternalTwinManager.Core.Dtos.Brutes.Battles;
 
 namespace EternalTwinManager.Application.Helpers;
 

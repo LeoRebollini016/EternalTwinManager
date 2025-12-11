@@ -1,3 +1,4 @@
+using EternalTwinManager.WinForms;
 using EternalTwinManager.WinForms.ErrorHandling;
 using EternalTwinManager.WinForms.Extensions;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,9 +16,9 @@ namespace EternalTwinManager
 
             var errorHandler = provider.GetRequiredService<GlobalErrorHandler>();
 
+
+
             ApplicationConfiguration.Initialize();
-
-
 
             System.Windows.Forms.Application.ThreadException += (sender, args) =>
             {

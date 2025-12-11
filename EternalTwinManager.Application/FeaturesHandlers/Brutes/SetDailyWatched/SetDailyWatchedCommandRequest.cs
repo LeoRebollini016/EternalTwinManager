@@ -1,4 +1,4 @@
-﻿using EternalTwinManager.Core.Shared.Models;
+﻿using EternalTwinManager.Core.Models;
 using MediatR;
 
 namespace EternalTwinManager.Application.FeaturesHandlers.Brutes.SetDailyWatched;

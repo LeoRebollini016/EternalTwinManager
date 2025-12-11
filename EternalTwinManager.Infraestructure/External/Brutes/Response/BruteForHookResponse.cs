@@ -49,7 +49,7 @@ public sealed record BruteForHookResponse(
     int? GlobalTournamentRoundWatched,
     DateTime? EventTournamentWatchedDate,
     int? EventTournamentRoundWatched,
-    DateTime LastFight,
+    DateTime? LastFight,
     int FightsLeft,
     int Victories,
     int Losses,

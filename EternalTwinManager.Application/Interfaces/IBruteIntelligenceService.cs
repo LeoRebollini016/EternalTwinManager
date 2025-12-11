@@ -1,8 +1,8 @@
-﻿using EternalTwinManager.Application.Models;
+﻿using EternalTwinManager.Core.Dtos.Brutes.Shared;
 
 namespace EternalTwinManager.Application.Brutes.Interfaces.Services;
 
 public interface IBruteIntelligenceService
 {
-    Task<BruteLoginResult?> GetLoginAsync(string username, string password, CancellationToken ct = default);
+    Task<LoginResultDto?> GetLoginAsync(string username, string password, CancellationToken ct = default);
 }
