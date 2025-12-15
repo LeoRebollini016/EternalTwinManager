@@ -14,7 +14,7 @@ El objetivo principal es automatizar:
 ## ✨ Características principales
 - .NET 8, Clean Architecture y separación de responsabilidades
 - CQRS con MediatR para casos de uso claros y testables
-- HttpClientFactory, pipelines y deserialización segura con `record`
+- HttpClient, pipelines y deserialización segura con `record`
 - Fight Pipeline con reintentos configurables y backoff
 - Detección automática de brutos con 0 combates y lógica configurable
 - Logs detallados mediante `ILogger`
@@ -54,6 +54,7 @@ Ejemplo mínimo `appsettings.json`:
 
 Variables importantes:
 - `ApiBaseUrl`: URL base de la API
+Por el momento, hardcodeadas por seguridad:
 - `ConcurrentAccounts`: número de cuentas procesadas en paralelo
 - `Fight:MaxRetries` y `Fight:RetryDelayMs`: control de reintentos
 - `Fight:MaxConsecutiveFailures`: fail-safe por fallos consecutivos
@@ -75,7 +76,7 @@ Advertencia: No aumentar variables sin considerar límites de la API.
 ]
 ````
 - No almacenar contraseñas en texto plano en repositorios.
-- Soporta cargar cuentas desde fichero, variable de entorno o UI WinForms.
+- Soporta cargar cuentas desde fichero.
 
 ---
 
